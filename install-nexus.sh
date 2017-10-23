@@ -9,7 +9,7 @@ currentTime()
   date +"%Y-%m-%d %H:%M:%S";
 }
 
-sudo docker service scale devops-nexu=0
+sudo docker service scale devops-nexus=0
 
 echo ---$(currentTime)---populate the volumes---
 #to zip, use: sudo tar zcvf devops_nexus_volume.tar.gz /var/nfs/volumes/devops_nexus*
@@ -28,4 +28,4 @@ volume-driver=local-persist,volume-opt=mountpoint=/var/nfs/volumes/devops_nexus_
 --constraint 'node.role == manager' \
 $NEXUS_IMAGE
 
-sudo docker service scale devops-nexu=1
+sudo docker service scale devops-nexus=1
